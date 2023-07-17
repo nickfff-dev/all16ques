@@ -1,0 +1,22 @@
+#include "main.h"
+
+int _chck_if_path(char **tokens)
+{
+    int i = 0, isOnPath = -1;
+    char *str = NULL, *path = NULL;
+
+    while (environ[i] != NULL && isOnPath != 0)
+    {
+        if(_str_n_cmp(environ[i], "PATH=", 5) == 0)
+        {
+            path = _strdup(environ[i]);
+            strtok(path, "=");
+            str = strtok(NULL, "=");
+            isOnPath = _look_in_path(str, tokens);
+            break;
+        }
+    }
+    free(path);
+    return (isOnPath);
+
+}
