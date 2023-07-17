@@ -4,17 +4,18 @@
 int _look_in_path(char *str, char **tokens)
 {
     struct dirent *fldr;
+    DIR *mydir;
     int dest = 0, isOnPath = -1;
 
     str = strtok(str, ":");
     while (str != NULL  && isOnPath != 1)
     {
-        DIR *fldr = opendir(str);
-        if (fldr == NULL)
+        mydir = opendir(str);
+        if (mydir == NULL)
         {
            return (0);
         }
-        while ((fldr = readdir(fldr)) != NULL)
+        while ((fldr = readdir(mydir)) != NULL)
         {
             if (_str_cmp(fldr->d_name, tokens[0]) == 0)
             {
@@ -25,7 +26,7 @@ int _look_in_path(char *str, char **tokens)
                 break;
             }
         }
-        closedir(fldr);
+        closedir(mydir);
         if(dest == 0)
             str = strtok(NULL, ":");
     }
