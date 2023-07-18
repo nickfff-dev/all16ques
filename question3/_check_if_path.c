@@ -7,7 +7,7 @@ int _chck_if_path(char **tokens)
 
     while (environ[i] != NULL && isOnPath != 0)
     {
-        if(_str_n_cmp(environ[i], "PATH=", 5) == 0)
+        if(_str_n_cmp("PATH=", environ[i], 5) == 0)
         {
             path = _strdup(environ[i]);
             strtok(path, "=");
@@ -15,6 +15,7 @@ int _chck_if_path(char **tokens)
             isOnPath = _look_in_path(str, tokens);
             break;
         }
+        i++;
     }
     free(path);
     return (isOnPath);

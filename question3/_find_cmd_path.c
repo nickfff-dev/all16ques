@@ -7,19 +7,22 @@ int _look_in_path(char *str, char **tokens)
     DIR *mydir;
     int dest = 0, isOnPath = -1;
 
+    
     str = strtok(str, ":");
-    while (str != NULL  && isOnPath != 1)
+    while (str != NULL  && dest != 1)
     {
         mydir = opendir(str);
         if (mydir == NULL)
         {
+           
            return (0);
         }
-        while ((fldr = readdir(mydir)) != NULL)
+        printf("Looking in %s\n", str);
+        for (fldr = readdir(mydir); fldr != NULL; fldr = readdir(mydir))
         {
             if (_str_cmp(fldr->d_name, tokens[0]) == 0)
             {
-                
+                 printf("Found %s in %s\n", tokens[0], str);
                 _run_path_command(str, tokens);
                 isOnPath = 0;
                 dest = 1;

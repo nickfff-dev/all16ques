@@ -13,7 +13,7 @@ int main(int __attribute__((__unused__)) argc, char **argv)
 	int is_interactivemode, tokencount = 0, x, cmdnum = 1;
 
 	is_interactivemode = isatty(STDIN_FILENO);
-	if (is_interactivemode == 0 && argc == 1)
+	if (is_interactivemode == 0)
 	{
 		while (getline(&line, &str_len, stdin) > 0)
 		{

@@ -10,12 +10,15 @@
 char *_str_cpy(char *dest, char *src)
 {
     int i = 0;
+    int leng = 0;
 
-    while (src[i])
+    while (*(src + leng) != '\0')
     {
-        dest[i] = src[i];
-        ++i;
+        leng++;
     }
-    dest[i] = '\0';
+    for (i = 0; i <= leng; i++)
+    {
+        *(dest + i) = *(src + i);
+    }
     return (dest);
 }

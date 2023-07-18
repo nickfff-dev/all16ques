@@ -12,18 +12,21 @@ char **argv, int cmdnum)
 {
 	struct stat *st;
 	int isOnPath = -1;
-
+    
+	
 	st = malloc(sizeof(struct stat));
 	if (stat(array[0], st) == -1)
 	{
+		
 		isOnPath = _chck_if_path(array);
+		printf("isOnPath: %d\n", isOnPath);
 		if (isOnPath == 0)
 		{
 			free(st);
 			return (0);
 		}
 	}
-	_executor(line, array, argv, cmdnum, st);
-	free(st);
-	return (0);
+		_executor(line, array, argv, cmdnum, st);
+		free(st);
+		return (0);
 }
