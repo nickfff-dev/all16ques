@@ -40,6 +40,5 @@ int main(int __attribute__((__unused__)) argc, char **argv)
 		line = NULL;
 		free(line);
 	}
-	printf("i am here\n");
 	return (0);
 }
