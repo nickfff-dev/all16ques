@@ -1,6 +1,6 @@
 #include "main.h"
 
-int _chck_if_path(char **tokens)
+int _chck_if_path(char **tokens, int cmdnum)
 {
     int i = 0, isOnPath = -1;
     char *str = NULL, *path = NULL;
@@ -12,7 +12,7 @@ int _chck_if_path(char **tokens)
             path = _strdup(environ[i]);
             strtok(path, "=");
             str = strtok(NULL, "=");
-            isOnPath = _look_in_path(str, tokens);
+            isOnPath = _look_in_path(str, tokens, cmdnum);
             break;
         }
         i++;

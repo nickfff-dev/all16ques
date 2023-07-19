@@ -6,9 +6,9 @@
 * @array: parameter of type char **.
 * Return: char **.
 */
-char **create_array_from_line(char *line, int num_tokens, char **array)
+char **create_array_from_line(char *line, int num_tokens)
 {
-	char *otherstr = NULL, *thirdstr = NULL, **array2 = NULL;
+	char *otherstr = NULL, *thirdstr = NULL, **array2 = NULL , **array = NULL;
 	int x = 0;
 
 	array = malloc(sizeof(char *) * (num_tokens));

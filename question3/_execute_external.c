@@ -18,8 +18,7 @@ char **argv, int cmdnum)
 	if (stat(array[0], st) == -1)
 	{
 		
-		isOnPath = _chck_if_path(array);
-		printf("isOnPath: %d\n", isOnPath);
+		isOnPath = _chck_if_path(array, cmdnum);
 		if (isOnPath == 0)
 		{
 			free(st);
