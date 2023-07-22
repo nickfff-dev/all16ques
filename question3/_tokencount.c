@@ -11,14 +11,14 @@ int _count_token(char *line)
 
 	for (x = 0; line[x]; x++)
 	{
-		if (line[x] == 10 || line[x] == '\t' || line[x] == ' ')
+		if (line[x] == '\n' || line[x] == '\t' || line[x] == ' ')
 		{
 			isSpace = 1;
 		}
 		else if (isSpace == 1)
 		{
 			isSpace = 0;
-			count++;
+			++count;
 		}
 	}
 	return (count);

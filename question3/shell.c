@@ -14,7 +14,7 @@ int main(int __attribute__((__unused__)) argc, char **argv)
 	is_interactivemode = isatty(STDIN_FILENO);
 	if (is_interactivemode == 0 && argc == 1)
 	{
-		while ( getline(&line, &str_len, stdin)  > 0)
+		while (getline(&line, &str_len, stdin)  > 0)
 		{
 			tokencount = _count_token(line);
 			handle_line(line, tokencount, argv, cmdnum);
