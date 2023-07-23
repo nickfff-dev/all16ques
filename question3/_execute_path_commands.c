@@ -1,8 +1,15 @@
 #include "main.h"
 
+/**
+  * _run_path_command - the function name
+  * @s: parameter of type char *.
+  * @tokens: parameter of type char **.
+  * @cmdnum: parameter of type int .
+  * Return: void .
+ */
 void _run_path_command(char *s, char **tokens, int cmdnum)
 {
-    int status = 0, x, y;
+	int status = 0, x, y;
 	pid_t child_pid;
 	char *pthstr = NULL;
 

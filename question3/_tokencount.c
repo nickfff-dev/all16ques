@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
-  * _count_token - the function name
-  * @line: parameter of type char *.
-  * Return: int .
- */
+* _count_token - the function name
+* @line: parameter of type char *.
+* Return: int .
+*/
 int _count_token(char *line)
 {
 	int count = 0, isSpace = 1, x;

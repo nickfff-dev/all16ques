@@ -4,7 +4,7 @@ int cmdnum, struct stat *st)
 {
 	pid_t child_pid;
 	int status = 0;
-    
+
 	child_pid = fork();
 	if (child_pid == -1)
 	{
@@ -35,6 +35,5 @@ if (status == 512)
 	errno = 2;
 if (status == 65280)
 	errno = 127;
-
 return (errno);
 }

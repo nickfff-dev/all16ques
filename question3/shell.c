@@ -1,16 +1,16 @@
 #include "main.h"
 /**
-  * main - The entry point of the program
-  * @argc: parameter of type int .
-  * @argv: parameter of type char **.
-  * Return: int .
- */
+* main - The entry point of the program
+* @argc: parameter of type int .
+* @argv: parameter of type char **.
+* Return: int .
+*/
 int main(int argc, char **argv)
 {
 	char *line = NULL;
 	size_t str_len = 0;
 	int is_interactivemode, status, tokencount = 0, x, cmdnum = 1;
-    
+
 	is_interactivemode = isatty(STDIN_FILENO);
 	if (is_interactivemode == 0 && argc == 1)
 	{

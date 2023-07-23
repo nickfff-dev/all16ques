@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
-  * _pr_str - the function name
-  * @args: parameter of type va_list *.
-  * Return: int .
- */
+* _pr_str - the function name
+* @args: parameter of type va_list *.
+* Return: int .
+*/
 int _pr_str(va_list *args)
 {
 	int j = 0;

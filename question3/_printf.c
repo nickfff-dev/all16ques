@@ -1,8 +1,8 @@
 #include "main.h"
 /**
-  *_print_f - function that mimicks printf
-  *@frmt: pointer t format of passed value
-  *Return: int
+*_print_f - function that mimicks printf
+*@frmt: pointer t format of passed value
+*Return: int
 */
 int _print_f(const char *frmt, ...)
 {

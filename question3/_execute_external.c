@@ -12,12 +12,10 @@ char **argv, int cmdnum)
 {
 	struct stat *st;
 	int isOnPath = -1, status;
-    
-	
+
 	st = malloc(sizeof(struct stat));
 	if (stat(array[0], st) == -1)
 	{
-		
 		isOnPath = _chck_if_path(array, cmdnum);
 		if (isOnPath == 0)
 		{
@@ -25,7 +23,6 @@ char **argv, int cmdnum)
 			return (0);
 		}
 	}
-	
 		status = _executor(line, array, argv, cmdnum, st);
 		free(st);
 		return (status);
