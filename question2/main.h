@@ -36,7 +36,7 @@ char *_strdup(char *str);
 void free_array(char **array);
 int _prt_dgt(va_list *args);
 int _check_frmt(va_list *args, const char *frmt, int x);
-char **create_array_from_line(char *line, int num_tokens, char **array);
+char **create_array_from_line(char *line, int num_tokens);
 void _get_digts(int x);
 int execute_external_command(char *line, char **array,
 char **argv, int cmdnum);

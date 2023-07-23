@@ -11,7 +11,7 @@ int cmdnum, struct stat *st)
 		free(st);
 		free_array(array);
 		free(line);
-		return (1);
+		return (0);
 	}
 	if (child_pid == 0)
 	{
@@ -29,13 +29,11 @@ int cmdnum, struct stat *st)
 	while (waitpid(-1, &status, 0) != child_pid)
 		;
 	}
-	if (status == 0)
-	{
-		errno = 0;
-	}
-	if (status == 512)
-	{
-		errno = 2;
-	}
-	return (status);
+if (status == 0)
+	errno = 0;
+if (status == 512)
+	errno = 2;
+if (status == 65280)
+	errno = 127;
+return (errno);
 }

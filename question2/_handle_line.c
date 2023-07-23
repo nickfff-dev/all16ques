@@ -9,17 +9,16 @@
 */
 int handle_line(char *line, int num_tokens, char **argv, int cmdnum)
 {
-	char **array = NULL, **array2 = NULL;
-	int status = 0;
+	char **array2 = NULL;
+	int status;
 
-	array2 = create_array_from_line(line, num_tokens, array);
+	array2 = create_array_from_line(line, num_tokens);
 	if (array2 == NULL)
 	{
-		return (1);
+		return (0);
 	}
 	status = execute_external_command(line, array2, argv, cmdnum);
 	free(line);
-	free(array);
 	free_array(array2);
 	return (status);
 }
