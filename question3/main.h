@@ -46,6 +46,7 @@ int handle_line(char *line, int num_tokens, char **argv, int cmdnum);
 int _executor(char *line, char **array, char **argv,
 int cmdnum, struct stat *st);
 void _run_path_command(char *s, char **tokens,int cmdnum);
+void _path_comand_run(char *pthstr, char **tokens, int cmdnum);
 int _look_in_path(char *str, char **tokens,int cmdnum);
 int _str_cmp(char *s1, char *s2);
 int _str_n_cmp(char *s1, char *s2, int n);
