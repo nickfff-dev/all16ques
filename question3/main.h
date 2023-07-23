@@ -10,7 +10,6 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <string.h>
-#include <limits.h>
 #include <dirent.h>
 #include <stdarg.h>
 #include <errno.h>

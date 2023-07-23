@@ -12,12 +12,12 @@ void _run_path_command(char *s, char **tokens, int cmdnum)
     if (pthstr == NULL)
     {
         perror("Error: ");
-        exit(1);
+        exit(0);
     }
     _str_cpy(pthstr, s);
     _str_cat(pthstr, "/");
     _str_cat(pthstr, tokens[0]);
-    pthstr[x + y + 1] = '\0';
+    pthstr[(x + y + 1)] = '\0';
     if(access(pthstr, X_OK) == 0)
     {
         child_pid = fork();
@@ -26,7 +26,7 @@ void _run_path_command(char *s, char **tokens, int cmdnum)
             perror("Error: ");
             free(pthstr);
             free_array(tokens);
-            exit(1);
+            exit(0);
         }
         if (child_pid == 0)
         {
@@ -46,10 +46,13 @@ void _run_path_command(char *s, char **tokens, int cmdnum)
     else
     {
         _print_f("%s: %d: %s: not found\n", tokens[0], cmdnum, tokens[0]);
-        free(pthstr);
-        return;
+
     }
     if (status == 0)
-        errno = 0;
+	    errno = 0;
+    if (status == 512)
+	    errno = 2;
+    if (status == 65280)
+	    errno = 127;
     free(pthstr);
 }

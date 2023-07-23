@@ -11,7 +11,7 @@ int execute_external_command(char *line, char **array,
 char **argv, int cmdnum)
 {
 	struct stat *st;
-	int isOnPath = -1;
+	int isOnPath = -1, status;
     
 	
 	st = malloc(sizeof(struct stat));
@@ -25,7 +25,8 @@ char **argv, int cmdnum)
 			return (0);
 		}
 	}
-		_executor(line, array, argv, cmdnum, st);
+	
+		status = _executor(line, array, argv, cmdnum, st);
 		free(st);
-		return (0);
+		return (status);
 }

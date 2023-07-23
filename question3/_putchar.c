@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
-* _putchar - the function name
+* _putchar - using this to redirect stderr
 * @c: parameter of type char .
 * Return: int .
 */
 int _putchar(char c)
 {
-	return (write(1, &c, 1));
+	return (write(2, &c, 1));
 }

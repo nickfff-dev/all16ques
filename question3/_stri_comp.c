@@ -4,13 +4,15 @@ int _str_cmp(char *s1, char *s2)
 {
     int i = 0;
 
-    while (s1[i] && s2[i])
+    while (s1[i] || s2[i])
     {
-        if (s1[i] != s2[i])
+        if (s1[i] == s2[i])
         {
-            return (-1);
+            s1++;
+			s2++;
         }
-        ++i;
+        else
+			return (-1);
     }
     return (0); 
 }
