@@ -19,7 +19,7 @@ int handle_line(char *line, int num_tokens, char **argv, int cmdnum)
 	}
 	for (x = 0; array2[x] != NULL; x++)
 	{
-		if (array2[x][0] == '-' || array2[x][0] == '~' || array2[x][0] == '.')
+		if (array2[x][0] == '-' || array2[x][0] == '~')
 		{
 			_print_f("%s: %d: %s: No such file or directory\n",
 			argv[0], cmdnum, array2[0]);
