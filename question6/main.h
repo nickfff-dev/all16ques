@@ -32,6 +32,7 @@ char * _str_n_cpy(char *dest, const char *src, size_t n);
 int _putchar(char c);
 int _strlen(char *s);
 int _print_f(const char *frmt, ...);
+
 int _count_token(char *line);
 int _pr_str(va_list *args);
 char *_strdup(char *str);
@@ -55,4 +56,6 @@ int _str_n_cmp(char *s1, char *s2, int n);
 int _chck_if_path(char **tokens, int cmdnum);
 void _puts_stri(char *smstr);
 int _handle_shell_inbuilt(char *line, char **array);
+int non_interactive_mode(char **argv);
+int interactive_mode(char **argv);
 #endif

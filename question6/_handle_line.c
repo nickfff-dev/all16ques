@@ -21,7 +21,6 @@ int handle_line(char *line, int num_tokens, char **argv, int cmdnum)
 	if (isBuiltin == 0)
 	{
 		status = execute_external_command(array2, argv, cmdnum);
-		
 		free_array(array2);
 		return (status);
 	}

@@ -1,6 +1,6 @@
 #include "main.h"
 
-int _executor( char **array, char **argv,
+int _executor(char **array, char **argv,
 int cmdnum, struct stat *st)
 {
 	pid_t child_pid;

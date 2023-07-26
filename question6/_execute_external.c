@@ -1,13 +1,11 @@
 #include "main.h"
 /**
 * execute_external_command - executes an external command
-*@line: pointer to char from input
 * @array: array of arguments
 *@argv: pointer to main second argument
 *@cmdnum: count of command
 * Return: 0 on success, 1 on failure
 */
-
 int execute_external_command(char **array,
 char **argv, int cmdnum)
 {

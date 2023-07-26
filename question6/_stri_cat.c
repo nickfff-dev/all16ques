@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
-  * _str_cat - the function name
-  * @dest: parameter of type char *.
-  * @src: parameter of type char *.
-  * Return: char *.
- */
+* _str_cat - the function name
+* @dest: parameter of type char *.
+* @src: parameter of type char *.
+* Return: char *.
+*/
 char *_str_cat(char *dest, char *src)
 {
 	int i = 0, j = 0;

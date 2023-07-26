@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
-  * _str_cmp - the function name
-  * @s1: parameter of type char *.
-  * @s2: parameter of type char *.
-  * Return: int .
- */
+* _str_cmp - the function name
+* @s1: parameter of type char *.
+* @s2: parameter of type char *.
+* Return: int .
+*/
 int _str_cmp(char *s1, char *s2)
 {
 	int i = 0;

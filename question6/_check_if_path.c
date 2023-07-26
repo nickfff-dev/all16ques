@@ -6,7 +6,6 @@
   * @cmdnum: parameter of type int .
   * Return: int .
  */
-
 int _chck_if_path(char **tokens, int cmdnum)
 {
 	int i = 0, isOnPath = -1;

@@ -16,6 +16,7 @@ int _check_frmt(va_list *args, const char *frmt, int x)
 		{"i", _prt_dgt},
 		{NULL, NULL}
 		};
+
 		x++;
 		if (frmt[x] == ' ')
 		{

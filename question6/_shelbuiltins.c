@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
-  * _handle_shell_inbuilt - the function name
-  * @line: parameter of type char *.
-  * @array: parameter of type char **.
-  * Return: int .
- */
+* _handle_shell_inbuilt - the function name
+* @line: parameter of type char *.
+* @array: parameter of type char **.
+* Return: int .
+*/
 int _handle_shell_inbuilt(char *line, char **array)
 {
 	char **p;

@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
-  * _path_comand_run - the function name
-  * @pthstr: parameter of type char *.
-  * @tokens: parameter of type char **.
-  * @cmdnum: parameter of type int .
-  * Return: void .
- */
+* _path_comand_run - the function name
+* @pthstr: parameter of type char *.
+* @tokens: parameter of type char **.
+* @cmdnum: parameter of type int .
+* Return: void .
+*/
 void _path_comand_run(char *pthstr, char **tokens, int cmdnum)
 {
 	pid_t child_pid;
