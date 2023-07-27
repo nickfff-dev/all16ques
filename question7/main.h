@@ -73,5 +73,6 @@ void my_setenv(char *name, char *value, Environment *env);
 void my_unsetenv(char *name, Environment *env);
 void free_my_environ(Environment *env);
 void print_environment(Environment *env);
+int _handle_exit(char **array);
 
 #endif

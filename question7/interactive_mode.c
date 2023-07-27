@@ -3,6 +3,7 @@
 /**
 * interactive_mode - the function name
 * @argv: parameter of type char **.
+* @env: environment copy.
 * Return: int .
 */
 int interactive_mode(char **argv, Environment *env)

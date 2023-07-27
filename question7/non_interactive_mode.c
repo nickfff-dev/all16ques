@@ -3,6 +3,7 @@
 /**
 * non_interactive_mode - the function name
 * @argv: parameter of type char **.
+* @env: environment copy.
 * Return: int .
 */
 int non_interactive_mode(char **argv, Environment *env)
@@ -18,7 +19,6 @@ int non_interactive_mode(char **argv, Environment *env)
 		status = handle_line(line, tokencount, argv, cmdnum, env);
 		if (status != 0)
 		{
-			
 			free(line);
 			free_my_environ(env);
 			exit(status);

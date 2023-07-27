@@ -5,9 +5,11 @@
 * @num_tokens: parameter of type int .
 * @argv: parameter of type char **.
 * @cmdnum: parameter of type int .
+* @env: environment copy.
 * Return: int .
 */
-int handle_line(char *line, int num_tokens, char **argv, int cmdnum, Environment *env)
+int handle_line(char *line, int num_tokens,
+		char **argv, int cmdnum, Environment *env)
 {
 	char **array2 = NULL;
 	int status, isBuiltin;
@@ -30,5 +32,5 @@ int handle_line(char *line, int num_tokens, char **argv, int cmdnum, Environment
 		return (0);
 	}
 
-	return(isBuiltin);
+	return (isBuiltin);
 }

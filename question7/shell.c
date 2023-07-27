@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 	int is_interactivemode, retun_val;
 	Environment env;
 
-    copy_environ(&env);
+	copy_environ(&env);
 	is_interactivemode = isatty(STDIN_FILENO);
 	if (is_interactivemode == 0 && argc == 1)
 	{
@@ -21,5 +21,5 @@ int main(int argc, char **argv)
 	retun_val = interactive_mode(argv, &env);
 	free_my_environ(&env);
 	return (retun_val);
-	
+
 }
