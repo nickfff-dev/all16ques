@@ -7,7 +7,7 @@
 * @cmdnum: parameter of type int .
 * Return: int .
 */
-int handle_line(char *line, int num_tokens, char **argv, int cmdnum)
+int handle_line(char *line, int num_tokens, char **argv, int cmdnum, Environment *env)
 {
 	char **array2 = NULL;
 	int status, isBuiltin;
@@ -17,7 +17,7 @@ int handle_line(char *line, int num_tokens, char **argv, int cmdnum)
 	{
 		return (0);
 	}
-	isBuiltin = _handle_shell_inbuilt(line, array2);
+	isBuiltin = _handle_shell_inbuilt(line, array2, argv, env);
 	if (isBuiltin == 0)
 	{
 		status = execute_external_command(array2, argv, cmdnum);
@@ -29,4 +29,6 @@ int handle_line(char *line, int num_tokens, char **argv, int cmdnum)
 		free_array(array2);
 		return (0);
 	}
+
+	return(isBuiltin);
 }

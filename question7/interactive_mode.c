@@ -5,12 +5,12 @@
 * @argv: parameter of type char **.
 * Return: int .
 */
-int interactive_mode(char **argv)
+int interactive_mode(char **argv, Environment *env)
 {
 	char *line = NULL;
 	size_t str_len = BUFF_SIZE;
 	ssize_t x;
-	int tokencount = 0, cmdnum = 1;
+	int tokencount = 0, cmdnum = 1, status = 0;
 
 	while (1)
 	{
@@ -24,11 +24,11 @@ int interactive_mode(char **argv)
 			break;
 		}
 		tokencount = _count_token(line);
-		handle_line(line, tokencount, argv, cmdnum);
+		status = handle_line(line, tokencount, argv, cmdnum, env);
 		cmdnum++;
 		free(line);
 		line = NULL;
 		str_len = BUFF_SIZE;
 	}
-	return (EXIT_SUCCESS);
+	return (status);
 }

@@ -6,25 +6,60 @@
 * @array: parameter of type char **.
 * Return: int .
 */
-int _handle_shell_inbuilt(char *line, char **array)
+int _handle_shell_inbuilt(char *line, char **array, char **argv, Environment *env)
 {
-	char **p;
+
+	int exit_status = 0, i;
 
 	if (_str_cmp(array[0], "exit") == 0)
 	{
+		 if (array[1] != NULL)
+		 {
+         if(digit_checker(array[1]) != 0)
+		 {
+			_print_f("%s: %d: exit: Illegal number: %s\n", argv[0], 1, array[1]);
+			exit(2);
+		 }
+		 i = 0;
+		 while(array[1][i] != '\0')
+		 {
+			exit_status = (exit_status*10) + (array[1][i] - '0');
+			i++;
+		 }
+		 }
 		free_array(array);
 		free(line);
-		exit(0);
+		free_my_environ(env);
+		exit(exit_status);
 	}
 	if (_str_cmp(array[0], "env") == 0)
-	{
-		p = environ;
-		while (*p)
-		{
-			_puts_stri(*p++);
-			write(1, "\n", 1);
-		}
+	{  
+
+		print_environment(env);
 		return (2);
+	}
+	if (_str_cmp(array[0], "setenv") == 0)
+	{
+		if(array[1] == NULL || array[2] == NULL)
+		{
+			_print_f("setenv: usage: setenv VARIABLE VALUE\n");
+			return (2);
+		}
+		
+		my_setenv(array[1], array[2], env);
+        return (2);
+	}
+	if (_str_cmp(array[0], "unsetenv") == 0)
+	{
+		if(array[1] == NULL)
+		{
+			_print_f("unsetenv: usage: unsetenv VARIABLE\n");
+			return (2);
+		}
+		
+		my_unsetenv(array[1], env);
+        return (2);
+
 	}
 	return (0);
 }

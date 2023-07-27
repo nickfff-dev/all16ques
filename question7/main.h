@@ -15,6 +15,7 @@
 #include <errno.h>
 
 extern char **environ;
+
 /**
 * struct format - types of data and their function
 * @ptr: the type of data
@@ -26,6 +27,13 @@ typedef struct format
 	int (*type)();
 
 } format;
+
+
+typedef struct Environment{
+    char **my_environ;
+    int alloc_len;
+} Environment;
+
 #define BUFF_SIZE 4096
 ssize_t my_getline(char **lineptr, size_t *n, int fd);
 char * _str_n_cpy(char *dest, const char *src, size_t n);
@@ -45,7 +53,7 @@ int execute_external_command(char **array,
 char **argv, int cmdnum);
 char *_str_cpy(char *dest, char *src);
 char *_str_cat(char *dest, char *src);
-int handle_line(char *line, int num_tokens, char **argv, int cmdnum);
+int handle_line(char *line, int num_tokens, char **argv, int cmdnum, Environment *env);
 int _executor(char **array, char **argv,
 int cmdnum, struct stat *st);
 void _run_path_command(char *s, char **tokens,int cmdnum);
@@ -55,8 +63,15 @@ int _str_cmp(char *s1, char *s2);
 int _str_n_cmp(char *s1, char *s2, int n);
 int _chck_if_path(char **tokens, int cmdnum);
 void _puts_stri(char *smstr);
-int _handle_shell_inbuilt(char *line, char **array);
-int non_interactive_mode(char **argv);
-int interactive_mode(char **argv);
+int _handle_shell_inbuilt(char *line, char **array, char **argv, Environment *env);
+int non_interactive_mode(char **argv, Environment *env);
+int interactive_mode(char **argv, Environment *env);
 char *my_stritk(char *str, const char *delim);
+int digit_checker(char *arg);
+void copy_environ(Environment *env);
+void my_setenv(char *name, char *value, Environment *env);
+void my_unsetenv(char *name, Environment *env);
+void free_my_environ(Environment *env);
+void print_environment(Environment *env);
+
 #endif

@@ -5,7 +5,7 @@
 * @argv: parameter of type char **.
 * Return: int .
 */
-int non_interactive_mode(char **argv)
+int non_interactive_mode(char **argv, Environment *env)
 {
 	char *line = NULL;
 	size_t str_len = BUFF_SIZE;
@@ -15,10 +15,12 @@ int non_interactive_mode(char **argv)
 	while ((y = my_getline(&line, &str_len, STDIN_FILENO)) > 0)
 	{
 		tokencount = _count_token(line);
-		status = handle_line(line, tokencount, argv, cmdnum);
+		status = handle_line(line, tokencount, argv, cmdnum, env);
 		if (status != 0)
 		{
+			
 			free(line);
+			free_my_environ(env);
 			exit(status);
 		}
 	}
