@@ -14,7 +14,7 @@ void copy_environ(Environment *env)
 	env->alloc_len = i;
 	env->my_environ = malloc(sizeof(char *) * (env->alloc_len + 1));
 	for (i = 0; environ[i] != NULL; i++)
-	env->my_environ[i] = strdup(environ[i]);
+	env->my_environ[i] = _strdup(environ[i]);
 	env->my_environ[i] = NULL;
 }
 /**
@@ -27,13 +27,13 @@ void copy_environ(Environment *env)
 void my_setenv(char *name, char *value, Environment *env)
 {
 	int i;
-	char *new_entry = malloc(strlen(name) + strlen(value) + 2);
+	char *new_entry = malloc(_strlen(name) + _strlen(value) + 2);
 
 	sprintf(new_entry, "%s=%s", name, value);
 	for (i = 0; env->my_environ[i] != NULL; i++)
 	{
-		if (strncmp(env->my_environ[i], name, strlen(name)) == 0 &&
-				(env->my_environ[i])[strlen(name)] == '=')
+		if (_str_n_cmp(env->my_environ[i], name, _strlen(name)) == 0 &&
+				(env->my_environ[i])[_strlen(name)] == '=')
 		{
 			free(env->my_environ[i]);
 			env->my_environ[i] = new_entry;
@@ -68,8 +68,8 @@ void my_unsetenv(char *name, Environment *env)
 		{
 			env->my_environ[i - 1] = env->my_environ[i];
 		}
-		else if (strncmp(env->my_environ[i], name, strlen(name)) == 0
-				&& (env->my_environ[i])[strlen(name)] == '=')
+		else if (_str_n_cmp(env->my_environ[i], name, _strlen(name)) == 0
+				&& (env->my_environ[i])[_strlen(name)] == '=')
 		{
 			free(env->my_environ[i]);
 			shift = 1;
