@@ -1,7 +1,14 @@
 #include "main.h"
-
-int _executor(char **array, char **argv,
-int cmdnum, struct stat *st)
+/**
+ * _executor - Executes a command or a series of commands
+ * @array: An array of command line arguments
+ * @argv: An array of arguments passed to the main program
+ * @cmdnum: The command number in the array of command line arguments
+ * @st: A pointer to a stat structure (used to check
+ * file permissions before execution)
+ * Return: Integer indicating the status of execution
+ */
+int _executor(char **array, char **argv, int cmdnum, struct stat *st)
 {
 	pid_t child_pid;
 	int status = 0;
